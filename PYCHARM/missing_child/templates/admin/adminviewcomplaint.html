@@ -1,0 +1,133 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+  <div class="container mt-5">
+<style>
+    /* General body styling */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f7f7f7;
+        color: #333;
+    }
+
+    /* Styling for the search form */
+    .search-form {
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-form input[type="date"] {
+        padding: 10px;
+        width: 80%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+
+    .search-form input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .search-form input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    /* Styling for the table */
+    table {
+        width: 100%;
+        margin-top: 30px;
+        border-collapse: collapse;
+        background-color: #fff;
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    /* Styling the reply link */
+    a {
+        color: #4CAF50;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive styling */
+    @media screen and (max-width: 768px) {
+        table, th, td {
+            font-size: 12px;
+        }
+
+        .search-form {
+            width: 90%;
+        }
+    }
+</style>
+
+<body>
+    <!-- Search form -->
+    <form method="post" action="/adminviewcomplain_post" class="search-form">
+        {% csrf_token %}
+        <input type="date" required name="date"/>
+        <input type="submit" name="Submit" value="Search"/>
+    </form>
+
+    <!-- Table to display complaint data -->
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Reply</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+                <tr>
+                    <td>{{ i.USERID.name }}</td>
+                    <td>{{ i.description }}</td>
+                    <td>{{ i.date }}</td>
+                    <td>
+                        {% if i.reply == 'pending' %}
+                            <a href="/sendreply/{{ i.id }}">Reply</a>
+                        {% else %}
+                            {{ i.reply }}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+  </div>
+
+{% endblock %}

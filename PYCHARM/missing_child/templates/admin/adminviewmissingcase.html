@@ -1,0 +1,137 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+      <div class="container mt-5">
+
+<style>
+
+    /* General body styling */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+
+    /* Styling the form table */
+    .search-form {
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-form input[type="date"] {
+        padding: 10px;
+        width: 80%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+
+    .search-form input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .search-form input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    /* Styling the main table */
+    table {
+        width: 100%;
+        margin-top: 30px;
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+        background-color: #fff;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    img {
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Add responsiveness to the table */
+    @media screen and (max-width: 768px) {
+        table, th, td {
+            font-size: 12px;
+        }
+
+        .search-form {
+            width: 90%;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    }
+</style>
+
+<body>
+    <!-- Search form -->
+    <form method="post" action="/adminviewmissingcase_post" class="search-form">
+        {% csrf_token %}
+        <input type="date" required name="date"/>
+        <input type="submit" name="Submit" value="Search"/>
+    </form>
+
+    <!-- Table to display missing case data -->
+    <table>
+        <thead>
+            <tr>
+                <th>Child Name</th>
+                <th>User Name</th>
+                <th>Child Image</th>
+                <th>Age</th>
+                <th>Description</th>
+                <th>Missing Date</th>
+                <th>Upload Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <td>{{ i.childname }}</td>
+                <td>{{ i.USERID.name }}</td>
+                <td>
+                    <img src="{{ i.childimage.url }}" width="200px" height="200px" alt="Child Image"/>
+                </td>
+                <td>{{ i.age }}</td>
+                <td>{{ i.description }}</td>
+                <td>{{ i.missingdate }}</td>
+                <td>{{ i.uploaddate }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+      </div>
+
+{% endblock %}

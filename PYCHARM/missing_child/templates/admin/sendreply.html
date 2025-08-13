@@ -1,0 +1,116 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+
+<body>
+    <form action="/sendreply_post" method="post" class="reply-form">{% csrf_token %}
+        <table class="form-table" cellspacing="0" cellpadding="10">
+            <thead>
+                <tr>
+                    <th colspan="2" class="form-header">Send a Reply</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="form-label">Username</td>
+                    <td>
+                        <input type="hidden" name="id" value="{{ data.id }}" />
+                        <input type="text" name="reply" class="form-input" placeholder="Enter your reply" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="Submit" value="Send" class="submit-btn" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fb;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .reply-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .form-header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+            padding: 10px;
+            background-color: #f0f9f0;
+            border-radius: 6px;
+        }
+
+        .form-label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            padding-right: 10px;
+            text-align: right;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fafafa;
+            color: #333;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .form-table tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        .form-table td {
+            padding: 10px;
+        }
+
+        .form-table input[type="text"] {
+            margin-top: 5px;
+        }
+    </style>
+</body>
+
+{% endblock %}

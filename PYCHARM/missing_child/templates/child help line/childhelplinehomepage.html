@@ -1,0 +1,99 @@
+
+{% extends 'child help line/index.html' %}
+{% block body %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Navigation Links</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktzKgxU9K/ScQsAP7hUibX39j7fakFPskvXUSPC3F" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+        }
+
+        h2 {
+            color: #4a4e69;
+            font-weight: bold;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f7f9fc, #e0e7ff);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .list-group-item {
+            background-color: transparent;
+            border: none;
+            padding: 15px 20px;
+            font-size: 16px;
+            color: #1e212d;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .list-group-item a {
+            color: inherit;
+        }
+
+        .list-group-item:hover {
+            background-color: #dbe4ff;
+            transform: scale(1.02);
+            cursor: pointer;
+        }
+
+        .list-group-item a:hover {
+            color: #4a4e69;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Navigation Links</h2>
+
+        <!-- Card to group the links -->
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <ul class="list-group">
+                    <!-- Link 1 -->
+                    <li class="list-group-item">
+                        <a href="/viewmissingcaseandupdate">Verified Missing Case</a>
+                    </li>
+
+                    <!-- Link 2 -->
+                    <li class="list-group-item">
+                        <a href="/viewnotification">Add and Manage Notification</a>
+                    </li>
+
+                    <!-- Link 3 -->
+                    <li class="list-group-item">
+                        <a href="/viewnotificationfromcamera">View Notification from Camera</a>
+                    </li>
+
+                    <!-- Link 4 -->
+                    <li class="list-group-item">
+                        <a href="#">Chat</a>
+                    </li>
+
+                    <!-- Link 5 -->
+                    <li class="list-group-item">
+                        <a href="/viewemergencyhelpline">View Emergency Helpline</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybF1mZmDGLmjae4Q3wr4Kptfztfgyg4F3bl2z+MZw7c1kBpX6p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0Fq0mPp9qP5d5gknwMyv69UR6y1b16RRzBZZrA6jAq6LzDg5" crossorigin="anonymous"></script>
+</body>
+{% endblock %}
+{#</html>#}

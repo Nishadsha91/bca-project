@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="get">
+</form>
+<table width="328" border="1">
+<tr>
+    <th>
+        <a href="/adminmanagehelpline">Add</a>
+    </th>
+</tr>
+  <tr>
+    <td>name</td>
+    <td>email</td>
+    <td>adress</td>
+    <td>phone</td>
+    <td>location</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ i.name }}</td>
+    <td>{{ i.email }}&nbsp;</td>
+    <td>&nbsp;{{ i.place }}<br>{{ i.pin }}<br>{{ i.post }}</td>
+    <td>{{ i.phone }}</td>
+    <td>{{ i.latitude }}<br>{{i.logitude }}</td>
+    <td>      <label></label>    <a href="edit_helpline/{{ i.id }}">edit</a></td>
+    <td></label>    <a href="/delete_adminhelpline/{{ i.id }}">delete</a></td>
+  </tr>
+
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>

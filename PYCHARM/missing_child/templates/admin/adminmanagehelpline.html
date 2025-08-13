@@ -1,0 +1,82 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+<body style="font-family: Arial, sans-serif; background-color: #f4f7fc; padding: 20px;">
+<div class="container mt-5">
+<!-- Form container with shadow and padding -->
+<div style="max-width: 800px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); padding: 30px;">
+  <h2 style="text-align: center; color: #333333; font-size: 24px; margin-bottom: 20px;">Register New Help Line</h2>
+
+  <form id="form1" name="form1" method="post" action="/adminmanagehelpline_post">
+    {% csrf_token %}
+
+<!-- Table structure but with modern styling -->
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+      <tr>
+        <td style="padding: 10px; font-weight: bold; color: #333333;">Name</td>
+        <td style="padding: 10px;">
+          <input type="text" name="textfield"  pattern="^[A-Za-z]+(?: [A-Za-z]+)*$"
+         title="Name should only contain letters and spaces" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;" />
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; font-weight: bold; color: #333333;">Email</td>
+        <td style="padding: 10px;">
+         <input type="email" class="text" name="textfield2" placeholder="Email"
+                required title="Enter a valid Gmail address (e.g., user@gmail.com)" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" autofocus>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; font-weight: bold; color: #333333;">Phone</td>
+        <td style="padding: 10px;">
+          <input type="text" name="textfield3" pattern="^\d{10}$"
+         title="Phone number should be exactly 10 digits" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;" />
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; font-weight: bold; color: #333333;">Place</td>
+        <td style="padding: 10px;">
+          <input type="text" name="textfield4"  pattern="^[A-Za-z\s]+$"
+         title="Place name should only contain letters and spaces" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;" />
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; font-weight: bold; color: #333333;">Pincode</td>
+        <td style="padding: 10px;">
+          <input type="text" name="textfield5"  pattern="^\d{6}$"
+         title="Pincode should be exactly 6 digits" required
+                 style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;" />
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; font-weight: bold; color: #333333;">Post</td>
+        <td style="padding: 10px;">
+          <input type="text" name="textfield6" pattern="^[A-Za-z\s]+$"
+         title="Place name should only contain letters and spaces" required
+                 style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;" />
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; font-weight: bold; color: #333333;">Latitude</td>
+        <td style="padding: 10px;">
+          <input type="text" name="textfield7"   pattern="^[-+]?(90(\.0+)?|([1-8]?\d(\.\d{1,6})?))$"
+         title="Latitude should be between -90.0 and 90.0 with up to 6 decimal places" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;" />
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; font-weight: bold; color: #333333;">Longitude</td>
+        <td style="padding: 10px;">
+          <input type="text" name="textfield8"   pattern="^[-+]?(180(\.0+)?|([1-9]?\d{1,2}(\.\d{1,6})?))$"
+         title="Longitude should be between -180.0 and 180.0 with up to 6 decimal places" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;" />
+        </td>
+      </tr>
+    </table>
+
+    <!-- Submit button with improved styling -->
+    <div style="text-align: center;">
+      <input type="submit" name="Submit" value="Register" style="background-color: #4CAF50; color: white; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
+    </div>
+  </form>
+</div>
+</div>
+</body>
+{% endblock %}

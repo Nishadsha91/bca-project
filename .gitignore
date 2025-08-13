@@ -1,0 +1,19 @@
+# Android Studio junk
+.gradle/
+.idea/
+*.apk
+*.aar
+*.iml
+**/build/
+
+# Python junk
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+
+# OS system files
+.DS_Store
+Thumbs.db

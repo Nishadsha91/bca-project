@@ -1,0 +1,53 @@
+{% extends 'child help line/index.html' %}
+
+{% block body %}
+    <!-- Container to hold the content -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+{#            <div style="margin:100px;">#}
+                <h2 class="text-center mb-4">User List</h2>
+
+                <!-- Table displaying the list of users -->
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Place</th>
+                            <th>PIN</th>
+                            <th>Post</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                            <tr>
+                                <td>{{ user.name }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.phone }}</td>
+                                <td>{{ user.place }}</td>
+                                <td>{{ user.pin }}</td>
+                                <td>{{ user.post }}</td>
+
+                                <!-- Chat Button with Pending Count -->
+                                <td>
+                                    <a href="/child_chat_to_user/{{ user.LOGIN.id }}" class="btn btn-success">
+
+                                        Chat
+                                    </a>
+                                </td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="7" class="text-center">No users found</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+{#            </div>#}
+            </div>
+        </div>
+    </div>
+{% endblock %}
